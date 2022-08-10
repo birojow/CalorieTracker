@@ -1,4 +1,4 @@
-package com.fabianomello.calorietracker
+package app.fabianomello.calorietracker
 
 import org.junit.Test
 

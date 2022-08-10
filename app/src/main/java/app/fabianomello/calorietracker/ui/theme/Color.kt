@@ -1,4 +1,4 @@
-package com.fabianomello.calorietracker.ui.theme
+package app.fabianomello.calorietracker.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
