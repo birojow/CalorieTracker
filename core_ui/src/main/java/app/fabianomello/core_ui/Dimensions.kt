@@ -2,7 +2,9 @@ package app.fabianomello.core_ui
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 data class Dimensions(
     val default: Dp = 0.dp,
@@ -11,6 +13,8 @@ data class Dimensions(
     val spaceMedium: Dp = 16.dp,
     val spaceLarge: Dp = 32.dp,
     val spaceExtraLarge: Dp = 64.dp,
+    val buttonBorderWidth: Dp = 2.dp,
+    val unitTextFieldTextSize: TextUnit = 70.sp
 )
 
 val LocalSpacing = compositionLocalOf { Dimensions() }
