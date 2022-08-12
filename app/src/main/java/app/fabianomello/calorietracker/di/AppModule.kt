@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.media.MediaCodec.MetricsConstants.MODE
 import app.fabianomello.core.data.preferences.DefaultPreferences
 import app.fabianomello.core.domain.preferences.Preferences
+import app.fabianomello.core.domain.usecase.FilterOutDigitsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,4 +25,9 @@ object AppModule {
     @Singleton
     fun providePreferences(sharedPreferences: SharedPreferences): Preferences =
         DefaultPreferences(sharedPreferences)
+
+    @Provides
+    @Singleton
+    fun providesFilterOutDigitsUseCase(): FilterOutDigitsUseCase =
+        FilterOutDigitsUseCase()
 }
