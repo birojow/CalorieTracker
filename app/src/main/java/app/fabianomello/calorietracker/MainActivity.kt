@@ -21,6 +21,7 @@ import app.fabianomello.onboarding_presentation.nutrientgoal.NutrientGoalScreen
 import app.fabianomello.onboarding_presentation.weight.WeightScreen
 import app.fabianomello.onboarding_presentation.weightgoal.WeightGoalScreen
 import app.fabianomello.onboarding_presentation.welcome.WelcomeScreen
+import app.fabianomello.tracker_presentation.overview.OverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -78,6 +79,14 @@ class MainActivity : ComponentActivity() {
                                 scaffoldState = scaffoldState,
                                 onNavigate = navController::navigate
                             )
+                        }
+                        composable(Route.TRACKER_OVERVIEW) {
+                            OverviewScreen(
+                                onNavigate = navController::navigate
+                            )
+                        }
+                        composable(Route.TRACKER_SEARCH) {
+
                         }
                     }
                 }
