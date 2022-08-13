@@ -1,11 +1,12 @@
-package app.fabianomello.onboarding_presentation.gender
+package app.fabianomello.onboarding_presentation.activitylevel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.fabianomello.core.domain.model.Gender
+import app.fabianomello.core.domain.model.ActivityLevel
+import app.fabianomello.core.domain.model.WeightGoal
 import app.fabianomello.core.domain.preferences.Preferences
 import app.fabianomello.core.navigation.Route
 import app.fabianomello.core_ui.util.UiEvent
@@ -16,24 +17,24 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GenderViewModel @Inject constructor(
-    private val preferences: Preferences
+class ActivityLevelViewModel @Inject constructor(
+   private val preferences: Preferences
 ) : ViewModel() {
 
-    var selectedGender by mutableStateOf<Gender>(Gender.Male)
+    var selectedActivityLevel by mutableStateOf<ActivityLevel>(ActivityLevel.Medium)
         private set
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onGenderClick(gender: Gender) {
-        selectedGender = gender
+    fun onActivityLevelClick(activityLevel: ActivityLevel) {
+        selectedActivityLevel = activityLevel
     }
 
     fun onNextClick() {
         viewModelScope.launch {
-            preferences.saveGender(selectedGender)
-            _uiEvent.send(UiEvent.Navigate(Route.ONBOARDING_AGE))
+            preferences.saveActivityLevel(selectedActivityLevel)
+            _uiEvent.send(UiEvent.Navigate(Route.ONBOARDING_WEIGHT_GOAL))
         }
     }
 }

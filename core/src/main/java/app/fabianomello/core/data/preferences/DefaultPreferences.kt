@@ -2,9 +2,9 @@ package app.fabianomello.core.data.preferences
 
 import android.content.SharedPreferences
 import app.fabianomello.core.domain.model.ActivityLevel
+import app.fabianomello.core.domain.model.WeightGoal
 import app.fabianomello.core.domain.model.Gender
 import app.fabianomello.core.domain.model.UserInfo
-import app.fabianomello.core.domain.model.WeightGoal
 import app.fabianomello.core.domain.preferences.Preferences
 
 class DefaultPreferences(
@@ -80,7 +80,7 @@ class DefaultPreferences(
             height = height,
             weight = weight,
             gender = Gender.fromString(genderString ?: Gender.Female.name),
-            activityLevel = ActivityLevel.fromString(activityLevelString ?: ActivityLevel.Medium.name),
+            activityLevel = WeightGoal.fromString(activityLevelString ?: ActivityLevel.Medium.name),
             weightGoal = WeightGoal.fromString(weightGoalString ?: WeightGoal.Keep.name),
             carbRatio = carbRatio,
             proteinRatio = proteinRatio,

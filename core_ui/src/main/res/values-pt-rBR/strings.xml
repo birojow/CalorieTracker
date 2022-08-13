@@ -5,8 +5,8 @@
     <string name="welcome_text">Oi! Vamos saber mais sobre você :)</string>
     <string name="lets_go">Vamos!</string>
     <string name="whats_your_gender">Qual é o seu gênero biológico?</string>
-    <string name="male">Homem</string>
-    <string name="female">Mulher</string>
+    <string name="male">Masculino</string>
+    <string name="female">Feminino</string>
     <string name="whats_your_age">Qual é a sua idade?</string>
     <string name="next">Próximo</string>
     <string name="whats_your_height">Qual é a sua altura?</string>

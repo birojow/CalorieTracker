@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import app.fabianomello.core_ui.LocalSpacing
 import app.fabianomello.core_ui.util.UiEvent
@@ -52,7 +53,8 @@ fun WeightScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.whats_your_weight),
-                style = MaterialTheme.typography.h3
+                style = MaterialTheme.typography.h3,
+                textAlign = TextAlign.Center
             )
             UnitTextField(
                 value = viewModel.weight,

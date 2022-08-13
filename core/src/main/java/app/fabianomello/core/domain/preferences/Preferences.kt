@@ -1,9 +1,9 @@
 package app.fabianomello.core.domain.preferences
 
 import app.fabianomello.core.domain.model.ActivityLevel
+import app.fabianomello.core.domain.model.WeightGoal
 import app.fabianomello.core.domain.model.Gender
 import app.fabianomello.core.domain.model.UserInfo
-import app.fabianomello.core.domain.model.WeightGoal
 
 interface Preferences {
     fun saveGender(gender: Gender)
