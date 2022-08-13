@@ -15,6 +15,8 @@ import app.fabianomello.calorietracker.ui.theme.CalorieTrackerTheme
 import app.fabianomello.core.navigation.Route
 import app.fabianomello.onboarding_presentation.age.AgeScreen
 import app.fabianomello.onboarding_presentation.gender.GenderScreen
+import app.fabianomello.onboarding_presentation.height.HeightScreen
+import app.fabianomello.onboarding_presentation.weight.WeightScreen
 import app.fabianomello.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,6 +44,18 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Route.ONBOARDING_AGE) {
                             AgeScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
+                        }
+                        composable(Route.ONBOARDING_HEIGHT) {
+                           HeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
+                        }
+                        composable(Route.ONBOARDING_WEIGHT) {
+                            WeightScreen(
                                 scaffoldState = scaffoldState,
                                 onNavigate = navController::navigate
                             )

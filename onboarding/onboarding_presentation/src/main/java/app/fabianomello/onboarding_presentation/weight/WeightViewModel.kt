@@ -1,4 +1,4 @@
-package app.fabianomello.onboarding_presentation.age
+package app.fabianomello.onboarding_presentation.weight
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.preferences.Preferences
-import app.fabianomello.core.domain.usecase.FilterOutDigitsUseCase
+import app.fabianomello.core.domain.usecase.*
 import app.fabianomello.core.navigation.Route
 import app.fabianomello.core_ui.util.UiEvent
 import app.fabianomello.core_ui.util.UiText
@@ -18,35 +18,34 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AgeViewModel @Inject constructor(
-    private val preferences: Preferences,
-    private val filterOutDigitsUseCase: FilterOutDigitsUseCase
+class WeightViewModel @Inject constructor(
+    private val preferences: Preferences
 ) : ViewModel() {
 
-    var age by mutableStateOf("30")
+    var weight by mutableStateOf("70.0")
         private set
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onAgeEnter(age: String) {
-        if (age.length <= 2) {
-            this.age = filterOutDigitsUseCase(age)
+    fun onWeightEnter(weight: String) {
+        if (weight.length <= 5) {
+            this.weight = weight
         }
     }
 
     fun onNextClick() {
         viewModelScope.launch {
-            val ageNumber = age.toIntOrNull() ?: kotlin.run {
+            val weightNumber = weight.toFloatOrNull() ?: kotlin.run {
                 _uiEvent.send(
                     UiEvent.ShowSnackbar(
-                        UiText.StringResource(R.string.error_age_cant_be_empty)
+                        UiText.StringResource(R.string.error_weight_cant_be_empty)
                     )
                 )
                 return@launch
             }
-            preferences.saveAge(ageNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ONBOARDING_HEIGHT))
+            preferences.saveWeight(weightNumber)
+            _uiEvent.send(UiEvent.Navigate(Route.ONBOARDING_ACTIVITY_LEVEL))
         }
     }
 }

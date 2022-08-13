@@ -3,10 +3,9 @@ package app.fabianomello.calorietracker.di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import android.media.MediaCodec.MetricsConstants.MODE
 import app.fabianomello.core.data.preferences.DefaultPreferences
 import app.fabianomello.core.domain.preferences.Preferences
-import app.fabianomello.core.domain.usecase.FilterOutDigitsUseCase
+import app.fabianomello.core.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
