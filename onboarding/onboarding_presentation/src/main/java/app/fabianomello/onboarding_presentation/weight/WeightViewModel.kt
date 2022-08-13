@@ -6,10 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.preferences.Preferences
-import app.fabianomello.core.domain.usecase.*
 import app.fabianomello.core.navigation.Route
-import app.fabianomello.core_ui.util.UiEvent
-import app.fabianomello.core_ui.util.UiText
+import app.fabianomello.core.util.UiEvent
+import app.fabianomello.core.util.UiText
 import app.fabianomello.onboarding_presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

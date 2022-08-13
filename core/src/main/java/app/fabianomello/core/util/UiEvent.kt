@@ -1,4 +1,4 @@
-package app.fabianomello.core_ui.util
+package app.fabianomello.core.util
 
 sealed class UiEvent {
     data class Navigate(val route: String) : UiEvent()

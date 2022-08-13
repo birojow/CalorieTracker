@@ -42,9 +42,9 @@
     <string name="error_something_went_wrong">Opa, algo deu errado!</string>
     <string name="no_results">Sem resultados</string>
     <string name="error_invalid_values">Esses valores não são válidos</string>
-    <string name="percent_proteins">% proteins</string>
-    <string name="percent_fats">% fats</string>
-    <string name="percent_carbs">% carbs</string>
+    <string name="percent_proteins">% proteinas</string>
+    <string name="percent_fats">% gorduras</string>
+    <string name="percent_carbs">% carboidratos</string>
     <string name="what_are_your_nutrient_goals">Quais são seus alvos nutricionais?</string>
     <string name="high">Alto</string>
     <string name="medium">Médio</string>

@@ -17,6 +17,7 @@ import app.fabianomello.onboarding_presentation.activitylevel.ActivityLevelScree
 import app.fabianomello.onboarding_presentation.age.AgeScreen
 import app.fabianomello.onboarding_presentation.gender.GenderScreen
 import app.fabianomello.onboarding_presentation.height.HeightScreen
+import app.fabianomello.onboarding_presentation.nutrientgoal.NutrientGoalScreen
 import app.fabianomello.onboarding_presentation.weight.WeightScreen
 import app.fabianomello.onboarding_presentation.weightgoal.WeightGoalScreen
 import app.fabianomello.onboarding_presentation.welcome.WelcomeScreen
@@ -69,6 +70,12 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Route.ONBOARDING_WEIGHT_GOAL) {
                             WeightGoalScreen(
+                                onNavigate = navController::navigate
+                            )
+                        }
+                        composable(Route.ONBOARDING_NUTRIENT_GOAL) {
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
                                 onNavigate = navController::navigate
                             )
                         }

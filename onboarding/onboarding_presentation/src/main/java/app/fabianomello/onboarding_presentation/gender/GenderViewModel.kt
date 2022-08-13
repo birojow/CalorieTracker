@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.model.Gender
 import app.fabianomello.core.domain.preferences.Preferences
 import app.fabianomello.core.navigation.Route
-import app.fabianomello.core_ui.util.UiEvent
+import app.fabianomello.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

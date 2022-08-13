@@ -1,4 +1,4 @@
-package app.fabianomello.core_ui.util
+package app.fabianomello.core.util
 
 import android.content.Context
 

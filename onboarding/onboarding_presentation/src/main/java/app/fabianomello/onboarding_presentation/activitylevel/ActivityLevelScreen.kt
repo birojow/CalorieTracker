@@ -14,7 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import app.fabianomello.core.domain.model.ActivityLevel
 import app.fabianomello.core_ui.LocalSpacing
-import app.fabianomello.core_ui.util.UiEvent
+import app.fabianomello.core.util.UiEvent
 import app.fabianomello.onboarding_presentation.R
 import app.fabianomello.onboarding_presentation.components.ActionButton
 import app.fabianomello.onboarding_presentation.components.SelectableButton

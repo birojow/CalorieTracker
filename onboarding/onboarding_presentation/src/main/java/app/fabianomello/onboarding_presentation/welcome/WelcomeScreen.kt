@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import app.fabianomello.core.navigation.Route
 import app.fabianomello.core_ui.LocalSpacing
-import app.fabianomello.core_ui.util.UiEvent
+import app.fabianomello.core.util.UiEvent
 import app.fabianomello.onboarding_presentation.R
 import app.fabianomello.onboarding_presentation.components.ActionButton
 
