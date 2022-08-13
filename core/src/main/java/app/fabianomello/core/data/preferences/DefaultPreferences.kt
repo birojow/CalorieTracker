@@ -80,7 +80,7 @@ class DefaultPreferences(
             height = height,
             weight = weight,
             gender = Gender.fromString(genderString ?: Gender.Female.name),
-            activityLevel = WeightGoal.fromString(activityLevelString ?: ActivityLevel.Medium.name),
+            activityLevel = ActivityLevel.fromString(activityLevelString ?: ActivityLevel.Medium.name),
             weightGoal = WeightGoal.fromString(weightGoalString ?: WeightGoal.Keep.name),
             carbRatio = carbRatio,
             proteinRatio = proteinRatio,

@@ -5,7 +5,7 @@ data class UserInfo(
     val weight: Float,
     val age: Int,
     val height: Int,
-    val activityLevel: WeightGoal,
+    val activityLevel: ActivityLevel,
     val weightGoal: WeightGoal,
     val carbRatio: Float,
     val proteinRatio: Float,
