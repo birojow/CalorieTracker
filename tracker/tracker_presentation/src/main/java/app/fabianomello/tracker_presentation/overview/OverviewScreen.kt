@@ -2,6 +2,7 @@ package app.fabianomello.tracker_presentation.overview
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -9,6 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import app.fabianomello.core.util.UiEvent
 import app.fabianomello.core_ui.LocalSpacing
 import app.fabianomello.tracker_presentation.overview.components.DaySelector
+import app.fabianomello.tracker_presentation.overview.components.ExpandableMeal
 import app.fabianomello.tracker_presentation.overview.components.NutrientsHeader
 
 @Composable
@@ -40,6 +42,18 @@ fun OverviewScreen(
                     .padding(horizontal = spacing.spaceMedium)
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        }
+        items(state.meals) { meal ->
+            ExpandableMeal(
+                meal = meal,
+                onToggleClick = {
+                    viewModel.onEvent(OverviewEvent.OnToggleMealClick(meal))
+                },
+                content = {
+
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }
