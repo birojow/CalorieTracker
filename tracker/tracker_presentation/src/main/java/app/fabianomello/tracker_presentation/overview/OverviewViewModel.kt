@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.preferences.Preferences
 import app.fabianomello.core.navigation.Route
 import app.fabianomello.core.util.UiEvent
+import app.fabianomello.core.util.UiText
 import app.fabianomello.tracker_domain.usecase.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -43,7 +44,7 @@ class OverviewViewModel @Inject constructor(
                     _uiEvent.send(
                         UiEvent.Navigate(
                             route = Route.TRACKER_SEARCH
-                                    + "/${event.meal.mealType.name}"
+                                    + "/${event.meal.name.asString(event.context)}"
                                     + "/${state.date.dayOfMonth}"
                                     + "/${state.date.monthValue}"
                                     + "/${state.date.year}"

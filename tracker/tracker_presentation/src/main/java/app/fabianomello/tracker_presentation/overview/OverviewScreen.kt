@@ -86,7 +86,10 @@ fun OverviewScreen(
                             ),
                             onClick = {
                                 viewModel.onEvent(
-                                    OverviewEvent.OnAddFoodClick(meal)
+                                    OverviewEvent.OnAddFoodClick(
+                                        meal = meal,
+                                        context = context
+                                    )
                                 )
                             },
                             modifier = Modifier.fillMaxWidth()
