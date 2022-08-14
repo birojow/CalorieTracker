@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.fabianomello.core_ui.CarbColor
 import app.fabianomello.core_ui.FatColor
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.core_ui.ProteinColor
 import app.fabianomello.tracker_presentation.R
 import app.fabianomello.tracker_presentation.components.UnitDisplay
@@ -26,7 +26,7 @@ fun NutrientsHeader(
     state: OverviewState,
     modifier: Modifier = Modifier
 ) {
-    val spacing = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     val animatedCalorieCount = animateIntAsState(
         targetValue = state.totalCalories
     )
@@ -41,8 +41,8 @@ fun NutrientsHeader(
             )
             .background(MaterialTheme.colors.primary)
             .padding(
-                horizontal = spacing.spaceLarge,
-                vertical = spacing.spaceExtraLarge
+                horizontal = dimensions.spaceLarge,
+                vertical = dimensions.spaceExtraLarge
             )
     ) {
         Row(
@@ -72,7 +72,7 @@ fun NutrientsHeader(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(spacing.spaceSmall))
+        Spacer(modifier = Modifier.height(dimensions.spaceSmall))
         NutrientsBar(
             carbs = state.totalCarbs,
             protein = state.totalProtein,
@@ -83,7 +83,7 @@ fun NutrientsHeader(
                 .fillMaxWidth()
                 .height(30.dp)
         )
-        Spacer(modifier = Modifier.height(spacing.spaceLarge))
+        Spacer(modifier = Modifier.height(dimensions.spaceLarge))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween

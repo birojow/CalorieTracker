@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 
 @Composable
 fun UnitDisplay(
@@ -23,7 +23,7 @@ fun UnitDisplay(
     unitTextSize: TextUnit = 14.sp,
     unitColor: Color = MaterialTheme.colors.onBackground
 ) {
-    val spacing = LocalSpacing.current
+    val spacing = LocalDimensions.current
     Row(modifier = modifier) {
         Text(
             text = amount.toString(),

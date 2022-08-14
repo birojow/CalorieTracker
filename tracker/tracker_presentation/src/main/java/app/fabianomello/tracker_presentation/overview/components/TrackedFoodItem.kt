@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.tracker_domain.model.TrackedFood
 import app.fabianomello.tracker_presentation.R
 import app.fabianomello.tracker_presentation.components.NutrientInfo
@@ -34,7 +34,7 @@ fun TrackedFoodItem(
     onDeleteClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val dimensions = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(5.dp))

@@ -14,7 +14,9 @@ data class Dimensions(
     val spaceLarge: Dp = 32.dp,
     val spaceExtraLarge: Dp = 64.dp,
     val buttonBorderWidth: Dp = 2.dp,
-    val unitTextFieldTextSize: TextUnit = 70.sp
+    val unitTextFieldTextSize: TextUnit = 70.sp,
+    val textFieldPadding: Dp = 2.dp,
+    val textFieldCornerRadius: Dp = 5.dp
 )
 
-val LocalSpacing = compositionLocalOf { Dimensions() }
+val LocalDimensions = compositionLocalOf { Dimensions() }

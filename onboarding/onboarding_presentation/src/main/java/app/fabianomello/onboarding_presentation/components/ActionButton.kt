@@ -8,7 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 
 @Composable
 fun ActionButton(
@@ -18,7 +18,7 @@ fun ActionButton(
     isEnabled: Boolean = true,
     textStyle: TextStyle = MaterialTheme.typography.button
 ) {
-    val dimensions = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     Button(
         onClick = onClick,
         modifier = modifier,

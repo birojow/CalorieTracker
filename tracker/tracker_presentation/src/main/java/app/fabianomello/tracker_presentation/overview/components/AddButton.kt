@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.tracker_presentation.R
 
 @Composable
@@ -26,7 +26,7 @@ fun AddButton(
     modifier: Modifier = Modifier,
     color: Color = MaterialTheme.colors.primary
 ) {
-    val spacing = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(100f))
@@ -36,7 +36,7 @@ fun AddButton(
                 color = color,
                 shape = RoundedCornerShape(100f)
             )
-            .padding(spacing.spaceMedium),
+            .padding(dimensions.spaceMedium),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -45,7 +45,7 @@ fun AddButton(
             contentDescription = stringResource(id = R.string.add),
             tint = color
         )
-        Spacer(modifier = Modifier.width(spacing.spaceMedium))
+        Spacer(modifier = Modifier.width(dimensions.spaceMedium))
         Text(
             text = text,
             style = MaterialTheme.typography.button,

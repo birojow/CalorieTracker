@@ -17,7 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.tracker_presentation.R
 import app.fabianomello.tracker_presentation.components.NutrientInfo
 import app.fabianomello.tracker_presentation.components.UnitDisplay
@@ -30,7 +30,7 @@ fun ExpandableMeal(
     content: @Composable () -> Unit,
     modifier: Modifier
 ) {
-    val spacing = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     val context = LocalContext.current
     Column(
         modifier = modifier
@@ -39,14 +39,14 @@ fun ExpandableMeal(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { onToggleClick() }
-                .padding(spacing.spaceMedium),
+                .padding(dimensions.spaceMedium),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
                 painter = painterResource(id = meal.drawableRes),
                 contentDescription = meal.name.asString(context)
             )
-            Spacer(modifier = Modifier.width(spacing.spaceMedium))
+            Spacer(modifier = Modifier.width(dimensions.spaceMedium))
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -67,7 +67,7 @@ fun ExpandableMeal(
                         } else stringResource(id = R.string.extend)
                     )
                 }
-                Spacer(modifier = Modifier.height(spacing.spaceSmall))
+                Spacer(modifier = Modifier.height(dimensions.spaceSmall))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -83,13 +83,13 @@ fun ExpandableMeal(
                             amount = meal.carbs,
                             unit = stringResource(id = R.string.grams)
                         )
-                        Spacer(modifier = Modifier.width(spacing.spaceSmall))
+                        Spacer(modifier = Modifier.width(dimensions.spaceSmall))
                         NutrientInfo(
                             name = stringResource(id = R.string.protein),
                             amount = meal.protein,
                             unit = stringResource(id = R.string.grams)
                         )
-                        Spacer(modifier = Modifier.width(spacing.spaceSmall))
+                        Spacer(modifier = Modifier.width(dimensions.spaceSmall))
                         NutrientInfo(
                             name = stringResource(id = R.string.fat),
                             amount = meal.fat,
@@ -99,7 +99,7 @@ fun ExpandableMeal(
                 }
             }
         }
-        Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        Spacer(modifier = Modifier.height(dimensions.spaceMedium))
         AnimatedVisibility(visible = meal.isExpanded) {
             content()
         }

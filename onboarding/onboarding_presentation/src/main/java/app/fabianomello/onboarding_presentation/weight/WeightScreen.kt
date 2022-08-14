@@ -12,7 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.core.util.UiEvent
 import app.fabianomello.onboarding_presentation.R
 import app.fabianomello.onboarding_presentation.components.ActionButton
@@ -25,7 +25,7 @@ fun WeightScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
     viewModel: WeightViewModel = hiltViewModel()
 ) {
-    val dimensions = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     val context = LocalContext.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->

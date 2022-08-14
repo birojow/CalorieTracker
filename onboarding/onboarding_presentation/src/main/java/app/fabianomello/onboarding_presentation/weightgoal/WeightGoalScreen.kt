@@ -13,7 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import app.fabianomello.core.domain.model.WeightGoal
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.core.util.UiEvent
 import app.fabianomello.onboarding_presentation.R
 import app.fabianomello.onboarding_presentation.components.ActionButton
@@ -25,7 +25,7 @@ fun WeightGoalScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
     viewModel: WeightGoalViewModel = hiltViewModel()
 ) {
-    val dimensions = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when(event) {

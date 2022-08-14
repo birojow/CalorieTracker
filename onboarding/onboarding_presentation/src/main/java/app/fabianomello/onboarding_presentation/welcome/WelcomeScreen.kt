@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import app.fabianomello.core.navigation.Route
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.core.util.UiEvent
 import app.fabianomello.onboarding_presentation.R
 import app.fabianomello.onboarding_presentation.components.ActionButton
@@ -18,7 +18,7 @@ import app.fabianomello.onboarding_presentation.components.ActionButton
 fun WelcomeScreen(
     onNavigate: (UiEvent.Navigate) -> Unit
 ) {
-    val dimensions = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     Column(
         modifier = Modifier
             .fillMaxSize()

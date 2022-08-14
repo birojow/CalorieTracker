@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import app.fabianomello.core_ui.LocalSpacing
+import app.fabianomello.core_ui.LocalDimensions
 
 @Composable
 fun SelectableButton(
@@ -26,7 +26,7 @@ fun SelectableButton(
     modifier: Modifier = Modifier,
     textStyle: TextStyle = MaterialTheme.typography.button
 ) {
-    val dimensions = LocalSpacing.current
+    val dimensions = LocalDimensions.current
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
