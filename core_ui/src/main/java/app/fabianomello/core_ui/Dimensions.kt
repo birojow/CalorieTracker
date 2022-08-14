@@ -16,7 +16,12 @@ data class Dimensions(
     val buttonBorderWidth: Dp = 2.dp,
     val unitTextFieldTextSize: TextUnit = 70.sp,
     val textFieldPadding: Dp = 2.dp,
-    val textFieldCornerRadius: Dp = 5.dp
+    val textFieldCornerRadius: Dp = 5.dp,
+    val trackableFoodItemCornerRadius: Dp = 5.dp,
+    val elevation: Dp = 1.dp,
+    val nutrientInfoAmountTextSize: TextUnit = 16.sp,
+    val nutrientInfoUnitTextSize: TextUnit = 12.sp,
+    val textFieldBorderWidth: Dp = 0.5.dp
 )
 
 val LocalDimensions = compositionLocalOf { Dimensions() }

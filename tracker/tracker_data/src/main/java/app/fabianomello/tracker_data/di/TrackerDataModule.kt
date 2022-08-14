@@ -1,6 +1,8 @@
 package app.fabianomello.tracker_data.di
 
 import android.app.Application
+import android.content.res.Resources
+import androidx.core.os.ConfigurationCompat
 import androidx.room.Room
 import app.fabianomello.tracker_data.local.TrackerDatabase
 import app.fabianomello.tracker_data.remote.OpenFoodApi
@@ -15,7 +17,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
-import java.util.*
 import javax.inject.Singleton
 
 @Module
@@ -37,10 +38,11 @@ object TrackerDataModule {
     @Provides
     @Singleton
     fun provideOpenFoodApi(client: OkHttpClient): OpenFoodApi {
-        val baseUrl = when(Locale.getDefault().language) {
-            "pt_br" -> OpenFoodApi.BASE_URL_BR
+        val baseUrl = when(ConfigurationCompat.getLocales(Resources.getSystem().configuration)[0].language) {
+            "pt" -> OpenFoodApi.BASE_URL_BR
             else -> OpenFoodApi.BASE_URL_US
         }
+
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(MoshiConverterFactory.create())
