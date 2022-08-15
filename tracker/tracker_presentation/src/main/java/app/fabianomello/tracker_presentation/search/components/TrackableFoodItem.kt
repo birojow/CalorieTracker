@@ -26,10 +26,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
+import app.fabianomello.core.util.UiText
 import app.fabianomello.core_ui.LocalDimensions
 import app.fabianomello.tracker_presentation.search.TrackableFoodUiState
 import app.fabianomello.tracker_presentation.R
@@ -46,6 +50,8 @@ fun TrackableFoodItem(
 ) {
     val food = trackableFoodUiState.food
     val dimensions = LocalDimensions.current
+    val context = LocalContext.current
+    val amountUiText = UiText.StringResource(R.string.amount)
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(dimensions.trackableFoodItemCornerRadius))
@@ -163,6 +169,9 @@ fun TrackableFoodItem(
                             )
                             .alignBy(LastBaseline)
                             .padding(dimensions.spaceMedium)
+                            .semantics {
+                                contentDescription = amountUiText.asString(context)
+                            }
                     )
                     Spacer(modifier = Modifier.width(dimensions.spaceExtraSmall))
                     Text(

@@ -37,7 +37,7 @@
     <string name="today">Hoje</string>
     <string name="kcal_per_100g">%dkcal / 100g</string>
     <string name="recent">Recente</string>
-    <string name="track">Rastrear</string>
+    <string name="track">Adicionar</string>
     <string name="error_something_went_wrong">Opa, algo deu errado!</string>
     <string name="no_results">Sem resultados</string>
     <string name="error_invalid_values">Esses valores não são válidos</string>
@@ -58,4 +58,5 @@
     <string name="error_not_100_percent">Os valores devem somar 100%</string>
     <string name="your_goal">Seu alvo:</string>
     <string name="delete">Deletar</string>
+    <string name="amount">Quantidade</string>
 </resources>
