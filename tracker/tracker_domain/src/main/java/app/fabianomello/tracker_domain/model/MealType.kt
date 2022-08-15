@@ -1,18 +1,18 @@
 package app.fabianomello.tracker_domain.model
 
 sealed class MealType(val name: String) {
-    object Breakfast: MealType("breakfast")
-    object Lunch: MealType("lunch")
-    object Dinner: MealType("dinner")
-    object Snack: MealType("snack")
+    object Breakfast: MealType("café da manhã")
+    object Lunch: MealType("almoço")
+    object Dinner: MealType("jantar")
+    object Snack: MealType("lanche")
 
     companion object {
         fun fromString(name: String): MealType {
             return when(name) {
-                "breakfast" -> Breakfast
-                "lunch" -> Lunch
-                "dinner" -> Dinner
-                "snack" -> Snack
+                "café da manhã" -> Breakfast
+                "almoço" -> Lunch
+                "jantar" -> Dinner
+                "lanche" -> Snack
                 else -> Breakfast
             }
         }

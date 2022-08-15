@@ -34,6 +34,7 @@ class OverviewViewModel @Inject constructor(
     private var getFoodsForDateJob: Job? = null
 
     init {
+        refreshFoods()
         preferences.saveShouldShowOnboarding(false)
     }
 
@@ -44,7 +45,7 @@ class OverviewViewModel @Inject constructor(
                     _uiEvent.send(
                         UiEvent.Navigate(
                             route = Route.TRACKER_SEARCH
-                                    + "/${event.meal.name.asString(event.context)}"
+                                    + "/${event.meal.mealType.name}"
                                     + "/${state.date.dayOfMonth}"
                                     + "/${state.date.monthValue}"
                                     + "/${state.date.year}"

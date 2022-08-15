@@ -37,19 +37,13 @@ object TrackerDataModule {
 
     @Provides
     @Singleton
-    fun provideOpenFoodApi(client: OkHttpClient): OpenFoodApi {
-        val baseUrl = when(ConfigurationCompat.getLocales(Resources.getSystem().configuration)[0].language) {
-            "pt" -> OpenFoodApi.BASE_URL_BR
-            else -> OpenFoodApi.BASE_URL_US
-        }
-
-        return Retrofit.Builder()
-            .baseUrl(baseUrl)
+    fun provideOpenFoodApi(client: OkHttpClient): OpenFoodApi =
+        Retrofit.Builder()
+            .baseUrl(OpenFoodApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()
             .create()
-    }
 
     @Provides
     @Singleton

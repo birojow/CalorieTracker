@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import app.fabianomello.calorietracker.navigation.navigate
 import app.fabianomello.calorietracker.ui.theme.CalorieTrackerTheme
+import app.fabianomello.core.domain.preferences.Preferences
 import app.fabianomello.core.navigation.Route
 import app.fabianomello.onboarding_presentation.activitylevel.ActivityLevelScreen
 import app.fabianomello.onboarding_presentation.age.AgeScreen
@@ -27,12 +28,18 @@ import app.fabianomello.onboarding_presentation.welcome.WelcomeScreen
 import app.fabianomello.tracker_presentation.overview.OverviewScreen
 import app.fabianomello.tracker_presentation.search.SearchScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @ExperimentalComposeUiApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var preferences: Preferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val shouldShowOnboarding = preferences.loadShouldShowOnboarding()
         setContent {
             CalorieTrackerTheme {
                 val navController = rememberNavController()
@@ -43,7 +50,11 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(
                         navController = navController,
-                        startDestination = Route.ONBOARDING_WELCOME
+                        startDestination = if (shouldShowOnboarding) {
+                            Route.ONBOARDING_WELCOME
+                        } else {
+                            Route.TRACKER_OVERVIEW
+                        }
                     ) {
                         composable(Route.ONBOARDING_WELCOME) {
                             WelcomeScreen(onNavigate = navController::navigate)
