@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.preferences.Preferences
-import app.fabianomello.core.navigation.Route
 import app.fabianomello.core.util.UiEvent
 import app.fabianomello.core.util.UiText
 import app.fabianomello.onboarding_presentation.R
@@ -44,7 +43,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ONBOARDING_ACTIVITY_LEVEL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

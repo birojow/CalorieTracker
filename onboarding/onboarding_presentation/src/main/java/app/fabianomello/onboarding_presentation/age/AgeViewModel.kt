@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.preferences.Preferences
 import app.fabianomello.core.domain.usecase.FilterOutDigitsUseCase
-import app.fabianomello.core.navigation.Route
 import app.fabianomello.core.util.UiEvent
 import app.fabianomello.core.util.UiText
 import app.fabianomello.onboarding_presentation.R
@@ -46,7 +45,7 @@ class AgeViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveAge(ageNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ONBOARDING_HEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

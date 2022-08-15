@@ -6,16 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.preferences.Preferences
-import app.fabianomello.core.navigation.Route
-import app.fabianomello.core.util.UiEvent
-import app.fabianomello.core.util.UiText
 import app.fabianomello.tracker_domain.usecase.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -28,9 +23,6 @@ class OverviewViewModel @Inject constructor(
     var state by mutableStateOf(OverviewState())
         private set
 
-    private val _uiEvent = Channel<UiEvent>()
-    val uiEvent = _uiEvent.receiveAsFlow()
-
     private var getFoodsForDateJob: Job? = null
 
     init {
@@ -40,19 +32,6 @@ class OverviewViewModel @Inject constructor(
 
     fun onEvent(event: OverviewEvent) {
         when(event) {
-            is OverviewEvent.OnAddFoodClick -> {
-                viewModelScope.launch {
-                    _uiEvent.send(
-                        UiEvent.Navigate(
-                            route = Route.TRACKER_SEARCH
-                                    + "/${event.meal.mealType.name}"
-                                    + "/${state.date.dayOfMonth}"
-                                    + "/${state.date.monthValue}"
-                                    + "/${state.date.year}"
-                        )
-                    )
-                }
-            }
             is OverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFood(event.trackedFood)

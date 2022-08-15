@@ -8,15 +8,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import app.fabianomello.core.navigation.Route
 import app.fabianomello.core_ui.LocalDimensions
-import app.fabianomello.core.util.UiEvent
 import app.fabianomello.onboarding_presentation.R
 import app.fabianomello.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit
+    onNextClick: () -> Unit
 ) {
     val dimensions = LocalDimensions.current
     Column(
@@ -34,7 +32,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(dimensions.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { onNavigate(UiEvent.Navigate(Route.ONBOARDING_GENDER)) },
+            onClick = { onNextClick() },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }

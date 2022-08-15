@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.model.ActivityLevel
 import app.fabianomello.core.domain.preferences.Preferences
-import app.fabianomello.core.navigation.Route
 import app.fabianomello.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -33,7 +32,7 @@ class ActivityLevelViewModel @Inject constructor(
     fun onNextClick() {
         viewModelScope.launch {
             preferences.saveActivityLevel(selectedActivityLevel)
-            _uiEvent.send(UiEvent.Navigate(Route.ONBOARDING_WEIGHT_GOAL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

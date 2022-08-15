@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.fabianomello.core.domain.preferences.Preferences
 import app.fabianomello.core.domain.usecase.FilterOutDigitsUseCase
-import app.fabianomello.core.navigation.Route
 import app.fabianomello.core.util.UiEvent
 import app.fabianomello.onboarding_domain.usecase.ValidateNutrientsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -58,7 +57,7 @@ class NutrientGoalViewModel @Inject constructor(
                         preferences.saveProteinRatio(result.proteinRatio)
                         preferences.saveFatRatio(result.fatRatio)
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
                     is ValidateNutrientsUseCase.Result.Error -> {

@@ -1,4 +1,4 @@
-package app.fabianomello.core.navigation
+package app.fabianomello.calorietracker.navigation
 
 object Route {
     const val ONBOARDING_WELCOME = "welcome"
